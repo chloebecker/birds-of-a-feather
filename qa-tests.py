@@ -27,7 +27,22 @@ def dropletHealth():
 	
 
 def runTests():
-	dropletHealth()
+	print("----------------------------------------")
+	print("-------------  Test Menu:  -------------")
+	print("----------------------------------------")
+	op = ""
+	while op != "e":
+		print("Options:")
+		print("1 - Droplet Health")
+		print("e - Exit")
+		op = input("")
+		if(op == "1"):
+			dropletHealth()
+		elif(op == "e"):
+			print("\nBye!")
+			return
+		else:
+			print("Invalid choice. Try again.\n")
 
 
 runTests()
