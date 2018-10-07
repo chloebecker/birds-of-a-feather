@@ -1,28 +1,28 @@
 import os
 
-dropletIp = "206.189.166.76"
+droplet = "https://team12.softwareengineeringii.com/"
 
 def dropletHealth():
 	print("\n-----------  BEGIN TEST CASE: dropletHealth()  -----------\n")
-	print("\nMaking request to " + dropletIp + "... ... ...")
+	print("\nMaking request to " + droplet + "... ... ...")
 	print("------------------------------------------------------------\n")
 	## tidy -i formats output with indentation so it's easier to read
-	os.system("curl " + dropletIp + " | tidy -i")
+	os.system("curl " + droplet + " | tidy -i")
 
 	## grep uses regex to find given text in the input file (in our case, the html for page we
 	## 		performed a get request on with cURL)
-	grepTxt = "\"<p>If you see this page, the nginx web server is successfully installed\""
-	print("\nSearching html with grep" + dropletIp + "... ... ...")
+	grepTxt = "\"<h1>Success\""
+	print("\nSearching html with grep" + droplet + "... ... ...")
 	print("------------------------------------------------------------\n")
 
-	response = os.system("curl " + dropletIp + " | grep " + grepTxt)
+	response = os.system("curl " + droplet + " | grep " + grepTxt)
 	
 	print("\nRESPONSE:")
 	print("------------------------------------------------------------\n")
 	if response == 0:
-		print(dropletIp + " is running!")
+		print(droplet + " is running!")
 	else:
-		print(dropletIp + " may be down, please check the droplet.")
+		print(droplet + " may be down, please check the droplet.")
 	print("\n-----------  END OF TEST CASE: dropletHealth()  -----------\n")
 	
 
